@@ -20,7 +20,7 @@ import javax.swing.JPanel;
  */
 public class BoardView {
 	// Main display frame and panel
-	private JFrame mainFrame = new JFrame();
+	public JFrame mainFrame = new JFrame();
 	private JPanel menuPanel = new JPanel();
 	private JPanel boardPanel = new JPanel(new GridBagLayout());
 	private JPanel mainPanel = new JPanel(new BorderLayout());

@@ -3,6 +3,9 @@ package game;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
+
 /**
  * @author Jonathan Dasher
  *
@@ -42,7 +45,6 @@ public class Controller {
 	class NewGameListener implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			// TODO Auto-generated method stub
 			model.newGame();
 			view.player1Turn();
 			view.setPit1(model.getPit1());
@@ -93,6 +95,9 @@ public class Controller {
 			} else {
 				view.player2Turn();
 			}
+			if(model.checkForWin()) {
+				Controller.this.gameOver();
+			}
 			view.setPit1(model.getPit1());
 			view.setPit2(model.getPit2());
 			view.setPit3(model.getPit3());
@@ -119,6 +124,9 @@ public class Controller {
 				view.player1Turn();
 			} else {
 				view.player2Turn();
+			}
+			if(model.checkForWin()) {
+				Controller.this.gameOver();
 			}
 			view.setPit1(model.getPit1());
 			view.setPit2(model.getPit2());
@@ -147,6 +155,9 @@ public class Controller {
 			} else {
 				view.player2Turn();	
 			}
+			if(model.checkForWin()) {
+				Controller.this.gameOver();
+			}
 			view.setPit1(model.getPit1());
 			view.setPit2(model.getPit2());
 			view.setPit3(model.getPit3());
@@ -173,6 +184,9 @@ public class Controller {
 				view.player1Turn();
 			} else {
 				view.player2Turn();	
+			}
+			if(model.checkForWin()) {
+				Controller.this.gameOver();
 			}
 			view.setPit1(model.getPit1());
 			view.setPit2(model.getPit2());
@@ -201,6 +215,9 @@ public class Controller {
 			} else {
 				view.player2Turn();	
 			}
+			if(model.checkForWin()) {
+				Controller.this.gameOver();
+			}
 			view.setPit1(model.getPit1());
 			view.setPit2(model.getPit2());
 			view.setPit3(model.getPit3());
@@ -227,6 +244,9 @@ public class Controller {
 				view.player1Turn();
 			} else {
 				view.player2Turn();	
+			}
+			if(model.checkForWin()) {
+				Controller.this.gameOver();
 			}
 			view.setPit1(model.getPit1());
 			view.setPit2(model.getPit2());
@@ -255,6 +275,9 @@ public class Controller {
 			} else {
 				view.player1Turn();
 			}
+			if(model.checkForWin()) {
+				Controller.this.gameOver();
+			}
 			view.setPit1(model.getPit1());
 			view.setPit2(model.getPit2());
 			view.setPit3(model.getPit3());
@@ -281,6 +304,9 @@ public class Controller {
 				view.player2Turn();
 			} else {
 				view.player1Turn();
+			}
+			if(model.checkForWin()) {
+				Controller.this.gameOver();
 			}
 			view.setPit1(model.getPit1());
 			view.setPit2(model.getPit2());
@@ -309,6 +335,9 @@ public class Controller {
 			} else {
 				view.player1Turn();
 			}
+			if(model.checkForWin()) {
+				Controller.this.gameOver();
+			}
 			view.setPit1(model.getPit1());
 			view.setPit2(model.getPit2());
 			view.setPit3(model.getPit3());
@@ -335,6 +364,9 @@ public class Controller {
 				view.player2Turn();
 			} else {
 				view.player1Turn();
+			}
+			if(model.checkForWin()) {
+				Controller.this.gameOver();
 			}
 			view.setPit1(model.getPit1());
 			view.setPit2(model.getPit2());
@@ -363,6 +395,9 @@ public class Controller {
 			} else {
 				view.player1Turn();
 			}
+			if(model.checkForWin()) {
+				Controller.this.gameOver();
+			}
 			view.setPit1(model.getPit1());
 			view.setPit2(model.getPit2());
 			view.setPit3(model.getPit3());
@@ -390,6 +425,9 @@ public class Controller {
 			} else {
 				view.player1Turn();
 			}
+			if(model.checkForWin()) {
+				Controller.this.gameOver();
+			}
 			view.setPit1(model.getPit1());
 			view.setPit2(model.getPit2());
 			view.setPit3(model.getPit3());
@@ -404,6 +442,37 @@ public class Controller {
 			view.setPit12(model.getPit12());
 			view.setPlayer1(model.getPlayer1());
 			view.setPlayer2(model.getPlayer2());
+		}
+	}
+
+	public void gameOver() {
+		System.out.println("Game Over");
+		int player1Score = Integer.parseInt(model.getPit1()) +
+				Integer.parseInt(model.getPit2()) +
+				Integer.parseInt(model.getPit3()) +
+				Integer.parseInt(model.getPit4()) +
+				Integer.parseInt(model.getPit5()) +
+				Integer.parseInt(model.getPit6());
+		int player2Score = Integer.parseInt(model.getPit7()) +
+				Integer.parseInt(model.getPit8()) +
+				Integer.parseInt(model.getPit9()) +
+				Integer.parseInt(model.getPit10()) +
+				Integer.parseInt(model.getPit11()) +
+				Integer.parseInt(model.getPit12());
+
+		Object[] options = {"New Game", "Quit"};
+		
+		if (player1Score == 0) {
+			System.out.println("Player 1 Wins");
+			WinDialog win = new WinDialog("Player 1");
+			JDialog win1 = win.createDialog(view.mainFrame, "You Won!");
+			win1.setVisible(true);
+		}
+		if(player2Score == 0) {
+			System.out.println("Player 2 Wins");
+			WinDialog win = new WinDialog("Player 2");
+			JDialog win1 = win.createDialog(view.mainFrame, "You Won!");
+			win1.setVisible(true);
 		}
 	}
 }
