@@ -1,6 +1,8 @@
 package game;
 
 /**
+ * Credit for guide to ActionListeners and event processing goes to Prof. 
+ * Dean Hougen at the University of Oklahoma
  * @author Jonathan Dasher
  *
  */
@@ -27,22 +29,78 @@ public class BoardModel {
 	 * Constructor
 	 */
 	public BoardModel() {	
-	// Initializes all board pieces
-	pit1 = 4;
-	pit2 = 4;
-	pit3 = 4;
-	pit4 = 4;
-	pit5 = 4;
-	pit6 = 4;
-	pit7 = 4;
-	pit8 = 4;
-	pit9 = 4;
-	pit10 = 4;
-	pit11 = 4;
-	pit12 = 4;
+		// Initializes all board pieces
+		pit1 = 4;
+		pit2 = 4;
+		pit3 = 4;
+		pit4 = 4;
+		pit5 = 4;
+		pit6 = 4;
+		pit7 = 4;
+		pit8 = 4;
+		pit9 = 4;
+		pit10 = 4;
+		pit11 = 4;
+		pit12 = 4;
 
-	player1 = 0;
-	player2 = 0;
+		player1 = 0;
+		player2 = 0;
+	}
+
+	public String getPit1() { 
+		return Integer.toString(pit1);
+	}
+
+	public String getPit2() { 
+		return Integer.toString(pit2);
+	}
+
+	public String getPit3() { 
+		return Integer.toString(pit3);
+	}
+
+	public String getPit4() { 
+		return Integer.toString(pit4);
+	}
+
+	public String getPit5() { 
+		return Integer.toString(pit5);
+	}
+
+	public String getPit6() { 
+		return Integer.toString(pit6);
+	}
+
+	public String getPit7() { 
+		return Integer.toString(pit7);
+	}
+
+	public String getPit8() { 
+		return Integer.toString(pit8);
+	}
+
+	public String getPit9() { 
+		return Integer.toString(pit9);
+	}
+
+	public String getPit10() { 
+		return Integer.toString(pit10);
+	}
+
+	public String getPit11() { 
+		return Integer.toString(pit11);
+	}
+
+	public String getPit12() { 
+		return Integer.toString(pit12);
+	}
+	
+	public String getPlayer1() {
+		return Integer.toString(player1);
+	}
+	
+	public String getPlayer2() {
+		return Integer.toString(player2);
 	}
 	
 	/**
@@ -60,7 +118,7 @@ public class BoardModel {
 				--temp;
 				// If pit 2 was empty, player 1 gets all in in pit 2 and 
 				// in opposite pit too
-				if(pit2 == 1) {
+				if(pit2 == 1 && temp == 0) {
 					player1 += pit2 + pit11;
 					pit2 = 0;
 					pit11 = 0;
@@ -70,7 +128,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit3;
 				--temp;
-				if(pit3 == 1) {
+				if(pit3 == 1 && temp == 0) {
 					player1 += pit3 + pit10;
 					pit3 = 0;
 					pit10 = 0;
@@ -80,7 +138,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit4;
 				--temp;
-				if(pit4 == 1) {
+				if(pit4 == 1 && temp == 0) {
 					player1 += pit4 + pit9;
 					pit4 = 0;
 					pit9 = 0;
@@ -90,7 +148,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit5;
 				--temp;
-				if(pit5 == 1) {
+				if(pit5 == 1 && temp == 0) {
 					player1 += pit5 + pit8;
 					pit5 = 0;
 					pit8 = 0;
@@ -100,7 +158,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit6;
 				--temp;
-				if(pit6 == 1) {
+				if(pit6 == 1 && temp == 0) {
 					player1 += pit6 + pit7;
 					pit6 = 0;
 					pit7 = 0;
@@ -116,7 +174,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit7;
 				--temp;
-				if(pit7 == 1) {
+				if(pit7 == 1 && temp == 0) {
 					player1 += pit7 += pit6;
 					pit7 = 0;
 					pit6 = 0;
@@ -126,7 +184,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit8;
 				--temp;
-				if(pit8 == 1) {
+				if(pit8 == 1 && temp == 0) {
 					player1 += pit8 + pit5;
 					pit8 = 0;
 					pit5 = 0;
@@ -136,7 +194,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit9;
 				--temp;
-				if(pit9 == 1) {
+				if(pit9 == 1 && temp == 0) {
 					player1 += pit9 + pit4;
 					pit9 = 0;
 					pit4 = 0;
@@ -146,7 +204,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit10;
 				--temp;
-				if(pit10 == 1) {
+				if(pit10 == 1 && temp == 0) {
 					player1 += pit10 + pit3;
 					pit10 = 0;
 					pit3 = 0;
@@ -156,7 +214,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit11;
 				--temp;
-				if(pit11 == 1) {
+				if(pit11 == 1 && temp == 0) {
 					player1 += pit11 + pit2;
 					pit11 = 0;
 					pit2 = 0;
@@ -166,7 +224,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit12;
 				--temp;
-				if(pit12 == 1) {
+				if(pit12 == 1 && temp == 0) {
 					player1 += pit12 + pit1;
 					pit12 = 0;
 					pit1 = 0;
@@ -176,7 +234,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit1;
 				--temp;
-				if(pit1 == 1) {
+				if(pit1 == 1 && temp == 0) {
 					player1 += pit1 + pit12;
 					pit1 = 0;
 					pit12 = 0;
@@ -187,7 +245,7 @@ public class BoardModel {
 		// Player picked an empty pit
 		return false;
 	}
-	
+
 	/**
 	 * Method that is called for a turn from pit 1 to take place
 	 * @return boolean True if player gets to go again
@@ -201,7 +259,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit3;
 				--temp;
-				if(pit3 == 1) {
+				if(pit3 == 1 && temp == 0) {
 					player1 += pit3 + pit10;
 					pit3 = 0;
 					pit10 = 0;
@@ -211,7 +269,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit4;
 				--temp;
-				if(pit4 == 1) {
+				if(pit4 == 1 && temp == 0) {
 					player1 += pit4 + pit9;
 					pit4 = 0;
 					pit9 = 0;
@@ -221,7 +279,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit5;
 				--temp;
-				if(pit5 == 1) {
+				if(pit5 == 1 && temp == 0) {
 					player1 += pit5 + pit8;
 					pit5 = 0;
 					pit8 = 0;
@@ -231,7 +289,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit6;
 				--temp;
-				if(pit6 == 1) {
+				if(pit6 == 1 && temp == 0) {
 					player1 += pit6 + pit7;
 					pit6 = 0;
 					pit7 = 0;
@@ -247,7 +305,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit7;
 				--temp;
-				if(pit7 == 1) {
+				if(pit7 == 1 && temp == 0) {
 					player1 += pit7 += pit6;
 					pit7 = 0;
 					pit6 = 0;
@@ -257,7 +315,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit8;
 				--temp;
-				if(pit8 == 1) {
+				if(pit8 == 1 && temp == 0) {
 					player1 += pit8 + pit5;
 					pit8 = 0;
 					pit5 = 0;
@@ -267,7 +325,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit9;
 				--temp;
-				if(pit9 == 1) {
+				if(pit9 == 1 && temp == 0) {
 					player1 += pit9 + pit4;
 					pit9 = 0;
 					pit4 = 0;
@@ -277,7 +335,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit10;
 				--temp;
-				if(pit10 == 1) {
+				if(pit10 == 1 && temp == 0) {
 					player1 += pit10 + pit3;
 					pit10 = 0;
 					pit3 = 0;
@@ -287,7 +345,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit11;
 				--temp;
-				if(pit11 == 1) {
+				if(pit11 == 1 && temp == 0) {
 					player1 += pit11 + pit2;
 					pit11 = 0;
 					pit2 = 0;
@@ -297,7 +355,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit12;
 				--temp;
-				if(pit12 == 1) {
+				if(pit12 == 1 && temp == 0) {
 					player1 += pit12 + pit1;
 					pit12 = 0;
 					pit1 = 0;
@@ -307,7 +365,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit1;
 				--temp;
-				if(pit1 == 1) {
+				if(pit1 == 1 && temp == 0) {
 					player1 += pit1 + pit12;
 					pit1 = 0;
 					pit12 = 0;
@@ -317,7 +375,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit2;
 				--temp;
-				if(pit2 == 1) {
+				if(pit2 == 1 && temp == 0) {
 					player1 += pit2 + pit11;
 					pit2 = 0;
 					pit11 = 0;
@@ -342,7 +400,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit4;
 				--temp;
-				if(pit4 == 1) {
+				if(pit4 == 1 && temp == 0) {
 					player1 += pit4 + pit9;
 					pit4 = 0;
 					pit9 = 0;
@@ -352,7 +410,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit5;
 				--temp;
-				if(pit5 == 1) {
+				if(pit5 == 1 && temp == 0) {
 					player1 += pit5 + pit8;
 					pit5 = 0;
 					pit8 = 0;
@@ -362,7 +420,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit6;
 				--temp;
-				if(pit6 == 1) {
+				if(pit6 == 1 && temp == 0) {
 					player1 += pit6 + pit7;
 					pit6 = 0;
 					pit7 = 0;
@@ -378,7 +436,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit7;
 				--temp;
-				if(pit7 == 1) {
+				if(pit7 == 1 && temp == 0) {
 					player1 += pit7 += pit6;
 					pit7 = 0;
 					pit6 = 0;
@@ -388,7 +446,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit8;
 				--temp;
-				if(pit8 == 1) {
+				if(pit8 == 1 && temp == 0) {
 					player1 += pit8 + pit5;
 					pit8 = 0;
 					pit5 = 0;
@@ -398,7 +456,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit9;
 				--temp;
-				if(pit9 == 1) {
+				if(pit9 == 1 && temp == 0) {
 					player1 += pit9 + pit4;
 					pit9 = 0;
 					pit4 = 0;
@@ -408,7 +466,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit10;
 				--temp;
-				if(pit10 == 1) {
+				if(pit10 == 1 && temp == 0) {
 					player1 += pit10 + pit3;
 					pit10 = 0;
 					pit3 = 0;
@@ -418,7 +476,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit11;
 				--temp;
-				if(pit11 == 1) {
+				if(pit11 == 1 && temp == 0) {
 					player1 += pit11 + pit2;
 					pit11 = 0;
 					pit2 = 0;
@@ -428,7 +486,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit12;
 				--temp;
-				if(pit12 == 1) {
+				if(pit12 == 1 && temp == 0) {
 					player1 += pit12 + pit1;
 					pit12 = 0;
 					pit1 = 0;
@@ -438,7 +496,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit1;
 				--temp;
-				if(pit1 == 1) {
+				if(pit1 == 1 && temp == 0) {
 					player1 += pit1 + pit12;
 					pit1 = 0;
 					pit12 = 0;
@@ -448,7 +506,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit2;
 				--temp;
-				if(pit2 == 1) {
+				if(pit2 == 1 && temp == 0) {
 					player1 += pit2 + pit11;
 					pit2 = 0;
 					pit11 = 0;
@@ -458,7 +516,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit3;
 				--temp;
-				if(pit3 == 1) {
+				if(pit3 == 1 && temp == 0) {
 					player1 += pit3 + pit10;
 					pit3 = 0;
 					pit10 = 0;
@@ -469,7 +527,7 @@ public class BoardModel {
 		// Player picked an empty pit
 		return false;
 	}
-	
+
 	/**
 	 * Method that is called for a turn from pit 1 to take place
 	 * @return boolean True if player gets to go again
@@ -483,7 +541,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit5;
 				--temp;
-				if(pit5 == 1) {
+				if(pit5 == 1 && temp == 0) {
 					player1 += pit5 + pit8;
 					pit5 = 0;
 					pit8 = 0;
@@ -493,7 +551,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit6;
 				--temp;
-				if(pit6 == 1) {
+				if(pit6 == 1 && temp == 0) {
 					player1 += pit6 + pit7;
 					pit6 = 0;
 					pit7 = 0;
@@ -509,7 +567,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit7;
 				--temp;
-				if(pit7 == 1) {
+				if(pit7 == 1 && temp == 0) {
 					player1 += pit7 += pit6;
 					pit7 = 0;
 					pit6 = 0;
@@ -519,7 +577,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit8;
 				--temp;
-				if(pit8 == 1) {
+				if(pit8 == 1 && temp == 0) {
 					player1 += pit8 + pit5;
 					pit8 = 0;
 					pit5 = 0;
@@ -529,7 +587,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit9;
 				--temp;
-				if(pit9 == 1) {
+				if(pit9 == 1 && temp == 0) {
 					player1 += pit9 + pit4;
 					pit9 = 0;
 					pit4 = 0;
@@ -539,7 +597,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit10;
 				--temp;
-				if(pit10 == 1) {
+				if(pit10 == 1 && temp == 0) {
 					player1 += pit10 + pit3;
 					pit10 = 0;
 					pit3 = 0;
@@ -549,7 +607,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit11;
 				--temp;
-				if(pit11 == 1) {
+				if(pit11 == 1 && temp == 0) {
 					player1 += pit11 + pit2;
 					pit11 = 0;
 					pit2 = 0;
@@ -559,7 +617,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit12;
 				--temp;
-				if(pit12 == 1) {
+				if(pit12 == 1 && temp == 0) {
 					player1 += pit12 + pit1;
 					pit12 = 0;
 					pit1 = 0;
@@ -569,7 +627,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit1;
 				--temp;
-				if(pit1 == 1) {
+				if(pit1 == 1 && temp == 0) {
 					player1 += pit1 + pit12;
 					pit1 = 0;
 					pit12 = 0;
@@ -579,7 +637,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit2;
 				--temp;
-				if(pit2 == 1) {
+				if(pit2 == 1 && temp == 0) {
 					player1 += pit2 + pit11;
 					pit2 = 0;
 					pit11 = 0;
@@ -589,7 +647,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit3;
 				--temp;
-				if(pit3 == 1) {
+				if(pit3 == 1 && temp == 0) {
 					player1 += pit3 + pit10;
 					pit3 = 0;
 					pit10 = 0;
@@ -599,7 +657,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit4;
 				--temp;
-				if(pit4 == 1) {
+				if(pit4 == 1 && temp == 0) {
 					player1 += pit4 + pit9;
 					pit4 = 0;
 					pit9 = 0;
@@ -610,7 +668,7 @@ public class BoardModel {
 		// Player picked an empty pit
 		return false;
 	}
-	
+
 	/**
 	 * Method that is called for a turn from pit 1 to take place
 	 * @return boolean True if player gets to go again
@@ -624,7 +682,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit6;
 				--temp;
-				if(pit6 == 1) {
+				if(pit6 == 1 && temp == 0) {
 					player1 += pit6 + pit7;
 					pit6 = 0;
 					pit7 = 0;
@@ -640,7 +698,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit7;
 				--temp;
-				if(pit7 == 1) {
+				if(pit7 == 1 && temp == 0) {
 					player1 += pit7 += pit6;
 					pit7 = 0;
 					pit6 = 0;
@@ -650,7 +708,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit8;
 				--temp;
-				if(pit8 == 1) {
+				if(pit8 == 1 && temp == 0) {
 					player1 += pit8 + pit5;
 					pit8 = 0;
 					pit5 = 0;
@@ -660,7 +718,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit9;
 				--temp;
-				if(pit9 == 1) {
+				if(pit9 == 1 && temp == 0) {
 					player1 += pit9 + pit4;
 					pit9 = 0;
 					pit4 = 0;
@@ -670,7 +728,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit10;
 				--temp;
-				if(pit10 == 1) {
+				if(pit10 == 1 && temp == 0) {
 					player1 += pit10 + pit3;
 					pit10 = 0;
 					pit3 = 0;
@@ -680,7 +738,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit11;
 				--temp;
-				if(pit11 == 1) {
+				if(pit11 == 1 && temp == 0) {
 					player1 += pit11 + pit2;
 					pit11 = 0;
 					pit2 = 0;
@@ -690,7 +748,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit12;
 				--temp;
-				if(pit12 == 1) {
+				if(pit12 == 1 && temp == 0) {
 					player1 += pit12 + pit1;
 					pit12 = 0;
 					pit1 = 0;
@@ -700,7 +758,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit1;
 				--temp;
-				if(pit1 == 1) {
+				if(pit1 == 1 && temp == 0) {
 					player1 += pit1 + pit12;
 					pit1 = 0;
 					pit12 = 0;
@@ -710,7 +768,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit2;
 				--temp;
-				if(pit2 == 1) {
+				if(pit2 == 1 && temp == 0) {
 					player1 += pit2 + pit11;
 					pit2 = 0;
 					pit11 = 0;
@@ -720,7 +778,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit3;
 				--temp;
-				if(pit3 == 1) {
+				if(pit3 == 1 && temp == 0) {
 					player1 += pit3 + pit10;
 					pit3 = 0;
 					pit10 = 0;
@@ -740,7 +798,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit5;
 				--temp;
-				if(pit5 == 1) {
+				if(pit5 == 1 && temp == 0) {
 					player1 += pit5 + pit8;
 					pit5 = 0;
 					pit8 = 0;
@@ -751,7 +809,7 @@ public class BoardModel {
 		// Player picked an empty pit
 		return false;
 	}
-	
+
 	/**
 	 * Method that is called for a turn from pit 1 to take place
 	 * @return boolean True if player gets to go again
@@ -771,7 +829,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit7;
 				--temp;
-				if(pit7 == 1) {
+				if(pit7 == 1 && temp == 0) {
 					player1 += pit7 += pit6;
 					pit7 = 0;
 					pit6 = 0;
@@ -781,7 +839,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit8;
 				--temp;
-				if(pit8 == 1) {
+				if(pit8 == 1 && temp == 0) {
 					player1 += pit8 + pit5;
 					pit8 = 0;
 					pit5 = 0;
@@ -791,7 +849,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit9;
 				--temp;
-				if(pit9 == 1) {
+				if(pit9 == 1 && temp == 0) {
 					player1 += pit9 + pit4;
 					pit9 = 0;
 					pit4 = 0;
@@ -801,7 +859,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit10;
 				--temp;
-				if(pit10 == 1) {
+				if(pit10 == 1 && temp == 0) {
 					player1 += pit10 + pit3;
 					pit10 = 0;
 					pit3 = 0;
@@ -811,7 +869,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit11;
 				--temp;
-				if(pit11 == 1) {
+				if(pit11 == 1 && temp == 0) {
 					player1 += pit11 + pit2;
 					pit11 = 0;
 					pit2 = 0;
@@ -821,7 +879,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit12;
 				--temp;
-				if(pit12 == 1) {
+				if(pit12 == 1 && temp == 0) {
 					player1 += pit12 + pit1;
 					pit12 = 0;
 					pit1 = 0;
@@ -831,7 +889,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit1;
 				--temp;
-				if(pit1 == 1) {
+				if(pit1 == 1 && temp == 0) {
 					player1 += pit1 + pit12;
 					pit1 = 0;
 					pit12 = 0;
@@ -841,7 +899,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit2;
 				--temp;
-				if(pit2 == 1) {
+				if(pit2 == 1 && temp == 0) {
 					player1 += pit2 + pit11;
 					pit2 = 0;
 					pit11 = 0;
@@ -851,7 +909,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit3;
 				--temp;
-				if(pit3 == 1) {
+				if(pit3 == 1 && temp == 0) {
 					player1 += pit3 + pit10;
 					pit3 = 0;
 					pit10 = 0;
@@ -861,7 +919,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit4;
 				--temp;
-				if(pit4 == 1) {
+				if(pit4 == 1 && temp == 0) {
 					player1 += pit4 + pit9;
 					pit4 = 0;
 					pit9 = 0;
@@ -871,7 +929,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit5;
 				--temp;
-				if(pit5 == 1) {
+				if(pit5 == 1 && temp == 0) {
 					player1 += pit5 + pit8;
 					pit5 = 0;
 					pit8 = 0;
@@ -881,7 +939,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit6;
 				--temp;
-				if(pit6 == 1) {
+				if(pit6 == 1 && temp == 0) {
 					player1 += pit6 + pit7;
 					pit6 = 0;
 					pit7 = 0;
@@ -906,7 +964,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit8;
 				--temp;
-				if(pit8 == 1) {
+				if(pit8 == 1 && temp == 0) {
 					player2 += pit8 + pit5;
 					pit8 = 0;
 					pit5 = 0;
@@ -916,7 +974,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit9;
 				--temp;
-				if(pit9 == 1) {
+				if(pit9 == 1 && temp == 0) {
 					player2 += pit9 + pit4;
 					pit9 = 0;
 					pit4 = 0;
@@ -926,7 +984,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit10;
 				--temp;
-				if(pit10 == 1) {
+				if(pit10 == 1 && temp == 0) {
 					player2 += pit10 + pit3;
 					pit10 = 0;
 					pit3 = 0;
@@ -936,7 +994,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit11;
 				--temp;
-				if(pit11 == 1) {
+				if(pit11 == 1 && temp == 0) {
 					player2 += pit11 + pit2;
 					pit11 = 0;
 					pit2 = 0;
@@ -946,7 +1004,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit12;
 				--temp;
-				if(pit12 == 1) {
+				if(pit12 == 1 && temp == 0) {
 					player2 += pit12 + pit1;
 					pit12 = 0;
 					pit1 = 0;
@@ -962,7 +1020,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit1;
 				--temp;
-				if(pit1 == 1) {
+				if(pit1 == 1 && temp == 0) {
 					player2 += pit1 + pit12;
 					pit1 = 0;
 					pit12 = 0;
@@ -972,7 +1030,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit2;
 				--temp;
-				if(pit2 == 1) {
+				if(pit2 == 1 && temp == 0) {
 					player2 += pit2 + pit11;
 					pit2 = 0;
 					pit11 = 0;
@@ -982,7 +1040,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit3;
 				--temp;
-				if(pit3 == 1) {
+				if(pit3 == 1 && temp == 0) {
 					player2 += pit3 + pit10;
 					pit3 = 0;
 					pit10 = 0;
@@ -992,7 +1050,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit4;
 				--temp;
-				if(pit4 == 1) {
+				if(pit4 == 1 && temp == 0) {
 					player2 += pit4 + pit9;
 					pit4 = 0;
 					pit9 = 0;
@@ -1002,7 +1060,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit5;
 				--temp;
-				if(pit5 == 1) {
+				if(pit5 == 1 && temp == 0) {
 					player2 += pit5 + pit8;
 					pit5 = 0;
 					pit8 = 0;
@@ -1012,7 +1070,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit6;
 				--temp;
-				if(pit6 == 1) {
+				if(pit6 == 1 && temp == 0) {
 					player2 += pit6 + pit7;
 					pit6 = 0;
 					pit7 = 0;
@@ -1022,7 +1080,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit7;
 				--temp;
-				if(pit7 == 1) {
+				if(pit7 == 1 && temp == 0) {
 					player2 += pit7 += pit6;
 					pit7 = 0;
 					pit6 = 0;
@@ -1033,7 +1091,7 @@ public class BoardModel {
 		// Player picked an empty pit
 		return false;
 	}
-	
+
 	/**
 	 * Method that is called for a turn from pit 1 to take place
 	 * @return boolean True if player gets to go again
@@ -1047,7 +1105,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit9;
 				--temp;
-				if(pit9 == 1) {
+				if(pit9 == 1 && temp == 0) {
 					player2 += pit9 + pit4;
 					pit9 = 0;
 					pit4 = 0;
@@ -1057,7 +1115,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit10;
 				--temp;
-				if(pit10 == 1) {
+				if(pit10 == 1 && temp == 0) {
 					player2 += pit10 + pit3;
 					pit10 = 0;
 					pit3 = 0;
@@ -1067,7 +1125,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit11;
 				--temp;
-				if(pit11 == 1) {
+				if(pit11 == 1 && temp == 0) {
 					player2 += pit11 + pit2;
 					pit11 = 0;
 					pit2 = 0;
@@ -1077,7 +1135,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit12;
 				--temp;
-				if(pit12 == 1) {
+				if(pit12 == 1 && temp == 0) {
 					player2 += pit12 + pit1;
 					pit12 = 0;
 					pit1 = 0;
@@ -1093,7 +1151,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit1;
 				--temp;
-				if(pit1 == 1) {
+				if(pit1 == 1 && temp == 0) {
 					player2 += pit1 + pit12;
 					pit1 = 0;
 					pit12 = 0;
@@ -1103,7 +1161,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit2;
 				--temp;
-				if(pit2 == 1) {
+				if(pit2 == 1 && temp == 0) {
 					player2 += pit2 + pit11;
 					pit2 = 0;
 					pit11 = 0;
@@ -1113,7 +1171,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit3;
 				--temp;
-				if(pit3 == 1) {
+				if(pit3 == 1 && temp == 0) {
 					player2 += pit3 + pit10;
 					pit3 = 0;
 					pit10 = 0;
@@ -1123,7 +1181,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit4;
 				--temp;
-				if(pit4 == 1) {
+				if(pit4 == 1 && temp == 0) {
 					player2 += pit4 + pit9;
 					pit4 = 0;
 					pit9 = 0;
@@ -1133,7 +1191,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit5;
 				--temp;
-				if(pit5 == 1) {
+				if(pit5 == 1 && temp == 0) {
 					player2 += pit5 + pit8;
 					pit5 = 0;
 					pit8 = 0;
@@ -1143,7 +1201,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit6;
 				--temp;
-				if(pit6 == 1) {
+				if(pit6 == 1 && temp == 0) {
 					player2 += pit6 + pit7;
 					pit6 = 0;
 					pit7 = 0;
@@ -1153,7 +1211,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit7;
 				--temp;
-				if(pit7 == 1) {
+				if(pit7 == 1 && temp == 0) {
 					player2 += pit7 += pit6;
 					pit7 = 0;
 					pit6 = 0;
@@ -1163,7 +1221,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit8;
 				--temp;
-				if(pit8 == 1) {
+				if(pit8 == 1 && temp == 0) {
 					player2 += pit8 + pit5;
 					pit8 = 0;
 					pit5 = 0;
@@ -1174,7 +1232,7 @@ public class BoardModel {
 		// Player picked an empty pit
 		return false;
 	}
-	
+
 	/**
 	 * Method that is called for a turn from pit 1 to take place
 	 * @return boolean True if player gets to go again
@@ -1188,7 +1246,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit10;
 				--temp;
-				if(pit10 == 1) {
+				if(pit10 == 1 && temp == 0) {
 					player2 += pit10 + pit3;
 					pit10 = 0;
 					pit3 = 0;
@@ -1198,7 +1256,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit11;
 				--temp;
-				if(pit11 == 1) {
+				if(pit11 == 1 && temp == 0) {
 					player2 += pit11 + pit2;
 					pit11 = 0;
 					pit2 = 0;
@@ -1208,7 +1266,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit12;
 				--temp;
-				if(pit12 == 1) {
+				if(pit12 == 1 && temp == 0) {
 					player2 += pit12 + pit1;
 					pit12 = 0;
 					pit1 = 0;
@@ -1224,7 +1282,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit1;
 				--temp;
-				if(pit1 == 1) {
+				if(pit1 == 1 && temp == 0) {
 					player2 += pit1 + pit12;
 					pit1 = 0;
 					pit12 = 0;
@@ -1234,7 +1292,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit2;
 				--temp;
-				if(pit2 == 1) {
+				if(pit2 == 1 && temp == 0) {
 					player2 += pit2 + pit11;
 					pit2 = 0;
 					pit11 = 0;
@@ -1244,7 +1302,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit3;
 				--temp;
-				if(pit3 == 1) {
+				if(pit3 == 1 && temp == 0) {
 					player2 += pit3 + pit10;
 					pit3 = 0;
 					pit10 = 0;
@@ -1254,7 +1312,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit4;
 				--temp;
-				if(pit4 == 1) {
+				if(pit4 == 1 && temp == 0) {
 					player2 += pit4 + pit9;
 					pit4 = 0;
 					pit9 = 0;
@@ -1264,7 +1322,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit5;
 				--temp;
-				if(pit5 == 1) {
+				if(pit5 == 1 && temp == 0) {
 					player2 += pit5 + pit8;
 					pit5 = 0;
 					pit8 = 0;
@@ -1274,7 +1332,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit6;
 				--temp;
-				if(pit6 == 1) {
+				if(pit6 == 1 && temp == 0) {
 					player2 += pit6 + pit7;
 					pit6 = 0;
 					pit7 = 0;
@@ -1284,7 +1342,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit7;
 				--temp;
-				if(pit7 == 1) {
+				if(pit7 == 1 && temp == 0) {
 					player2 += pit7 += pit6;
 					pit7 = 0;
 					pit6 = 0;
@@ -1294,7 +1352,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit8;
 				--temp;
-				if(pit8 == 1) {
+				if(pit8 == 1 && temp == 0) {
 					player2 += pit8 + pit5;
 					pit8 = 0;
 					pit5 = 0;
@@ -1304,7 +1362,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit9;
 				--temp;
-				if(pit9 == 1) {
+				if(pit9 == 1 && temp == 0) {
 					player2 += pit9 + pit4;
 					pit9 = 0;
 					pit4 = 0;
@@ -1315,7 +1373,7 @@ public class BoardModel {
 		// Player picked an empty pit
 		return false;
 	}
-	
+
 	/**
 	 * Method that is called for a turn from pit 1 to take place
 	 * @return boolean True if player gets to go again
@@ -1329,7 +1387,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit11;
 				--temp;
-				if(pit11 == 1) {
+				if(pit11 == 1 && temp == 0) {
 					player2 += pit11 + pit2;
 					pit11 = 0;
 					pit2 = 0;
@@ -1339,7 +1397,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit12;
 				--temp;
-				if(pit12 == 1) {
+				if(pit12 == 1 && temp == 0) {
 					player2 += pit12 + pit1;
 					pit12 = 0;
 					pit1 = 0;
@@ -1355,7 +1413,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit1;
 				--temp;
-				if(pit1 == 1) {
+				if(pit1 == 1 && temp == 0) {
 					player2 += pit1 + pit12;
 					pit1 = 0;
 					pit12 = 0;
@@ -1365,7 +1423,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit2;
 				--temp;
-				if(pit2 == 1) {
+				if(pit2 == 1 && temp == 0) {
 					player2 += pit2 + pit11;
 					pit2 = 0;
 					pit11 = 0;
@@ -1375,7 +1433,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit3;
 				--temp;
-				if(pit3 == 1) {
+				if(pit3 == 1 && temp == 0) {
 					player2 += pit3 + pit10;
 					pit3 = 0;
 					pit10 = 0;
@@ -1385,7 +1443,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit4;
 				--temp;
-				if(pit4 == 1) {
+				if(pit4 == 1 && temp == 0) {
 					player2 += pit4 + pit9;
 					pit4 = 0;
 					pit9 = 0;
@@ -1395,7 +1453,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit5;
 				--temp;
-				if(pit5 == 1) {
+				if(pit5 == 1 && temp == 0) {
 					player2 += pit5 + pit8;
 					pit5 = 0;
 					pit8 = 0;
@@ -1405,7 +1463,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit6;
 				--temp;
-				if(pit6 == 1) {
+				if(pit6 == 1 && temp == 0) {
 					player2 += pit6 + pit7;
 					pit6 = 0;
 					pit7 = 0;
@@ -1415,7 +1473,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit7;
 				--temp;
-				if(pit7 == 1) {
+				if(pit7 == 1 && temp == 0) {
 					player2 += pit7 += pit6;
 					pit7 = 0;
 					pit6 = 0;
@@ -1425,7 +1483,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit8;
 				--temp;
-				if(pit8 == 1) {
+				if(pit8 == 1 && temp == 0) {
 					player2 += pit8 + pit5;
 					pit8 = 0;
 					pit5 = 0;
@@ -1435,7 +1493,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit9;
 				--temp;
-				if(pit9 == 1) {
+				if(pit9 == 1 && temp == 0) {
 					player2 += pit9 + pit4;
 					pit9 = 0;
 					pit4 = 0;
@@ -1445,7 +1503,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit10;
 				--temp;
-				if(pit10 == 1) {
+				if(pit10 == 1 && temp == 0) {
 					player2 += pit10 + pit3;
 					pit10 = 0;
 					pit3 = 0;
@@ -1456,7 +1514,7 @@ public class BoardModel {
 		// Player picked an empty pit
 		return false;
 	}
-	
+
 	/**
 	 * Method that is called for a turn from pit 1 to take place
 	 * @return boolean True if player gets to go again
@@ -1470,7 +1528,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit12;
 				--temp;
-				if(pit12 == 1) {
+				if(pit12 == 1 && temp == 0) {
 					player2 += pit12 + pit1;
 					pit12 = 0;
 					pit1 = 0;
@@ -1486,7 +1544,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit1;
 				--temp;
-				if(pit1 == 1) {
+				if(pit1 == 1 && temp == 0) {
 					player2 += pit1 + pit12;
 					pit1 = 0;
 					pit12 = 0;
@@ -1496,7 +1554,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit2;
 				--temp;
-				if(pit2 == 1) {
+				if(pit2 == 1 && temp == 0) {
 					player2 += pit2 + pit11;
 					pit2 = 0;
 					pit11 = 0;
@@ -1506,7 +1564,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit3;
 				--temp;
-				if(pit3 == 1) {
+				if(pit3 == 1 && temp == 0) {
 					player2 += pit3 + pit10;
 					pit3 = 0;
 					pit10 = 0;
@@ -1516,7 +1574,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit4;
 				--temp;
-				if(pit4 == 1) {
+				if(pit4 == 1 && temp == 0) {
 					player2 += pit4 + pit9;
 					pit4 = 0;
 					pit9 = 0;
@@ -1526,7 +1584,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit5;
 				--temp;
-				if(pit5 == 1) {
+				if(pit5 == 1 && temp == 0) {
 					player2 += pit5 + pit8;
 					pit5 = 0;
 					pit8 = 0;
@@ -1536,7 +1594,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit6;
 				--temp;
-				if(pit6 == 1) {
+				if(pit6 == 1 && temp == 0) {
 					player2 += pit6 + pit7;
 					pit6 = 0;
 					pit7 = 0;
@@ -1546,7 +1604,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit7;
 				--temp;
-				if(pit7 == 1) {
+				if(pit7 == 1 && temp == 0) {
 					player2 += pit7 += pit6;
 					pit7 = 0;
 					pit6 = 0;
@@ -1556,7 +1614,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit8;
 				--temp;
-				if(pit8 == 1) {
+				if(pit8 == 1 && temp == 0) {
 					player2 += pit8 + pit5;
 					pit8 = 0;
 					pit5 = 0;
@@ -1566,7 +1624,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit9;
 				--temp;
-				if(pit9 == 1) {
+				if(pit9 == 1 && temp == 0) {
 					player2 += pit9 + pit4;
 					pit9 = 0;
 					pit4 = 0;
@@ -1576,7 +1634,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit10;
 				--temp;
-				if(pit10 == 1) {
+				if(pit10 == 1 && temp == 0) {
 					player2 += pit10 + pit3;
 					pit10 = 0;
 					pit3 = 0;
@@ -1586,7 +1644,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit11;
 				--temp;
-				if(pit11 == 1) {
+				if(pit11 == 1 && temp == 0) {
 					player2 += pit11 + pit2;
 					pit11 = 0;
 					pit2 = 0;
@@ -1597,7 +1655,7 @@ public class BoardModel {
 		// Player picked an empty pit
 		return false;
 	}
-	
+
 	/**
 	 * Method that is called for a turn from pit 1 to take place
 	 * @return boolean True if player gets to go again
@@ -1617,7 +1675,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit1;
 				--temp;
-				if(pit1 == 1) {
+				if(pit1 == 1 && temp == 0) {
 					player2 += pit1 + pit12;
 					pit1 = 0;
 					pit12 = 0;
@@ -1627,7 +1685,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit2;
 				--temp;
-				if(pit2 == 1) {
+				if(pit2 == 1 && temp == 0) {
 					player2 += pit2 + pit11;
 					pit2 = 0;
 					pit11 = 0;
@@ -1637,7 +1695,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit3;
 				--temp;
-				if(pit3 == 1) {
+				if(pit3 == 1 && temp == 0) {
 					player2 += pit3 + pit10;
 					pit3 = 0;
 					pit10 = 0;
@@ -1647,7 +1705,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit4;
 				--temp;
-				if(pit4 == 1) {
+				if(pit4 == 1 && temp == 0) {
 					player2 += pit4 + pit9;
 					pit4 = 0;
 					pit9 = 0;
@@ -1657,7 +1715,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit5;
 				--temp;
-				if(pit5 == 1) {
+				if(pit5 == 1 && temp == 0) {
 					player2 += pit5 + pit8;
 					pit5 = 0;
 					pit8 = 0;
@@ -1667,7 +1725,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit6;
 				--temp;
-				if(pit6 == 1) {
+				if(pit6 == 1 && temp == 0) {
 					player2 += pit6 + pit7;
 					pit6 = 0;
 					pit7 = 0;
@@ -1677,7 +1735,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit7;
 				--temp;
-				if(pit7 == 1) {
+				if(pit7 == 1 && temp == 0) {
 					player2 += pit7 += pit6;
 					pit7 = 0;
 					pit6 = 0;
@@ -1687,7 +1745,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit8;
 				--temp;
-				if(pit8 == 1) {
+				if(pit8 == 1 && temp == 0) {
 					player2 += pit8 + pit5;
 					pit8 = 0;
 					pit5 = 0;
@@ -1697,7 +1755,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit9;
 				--temp;
-				if(pit9 == 1) {
+				if(pit9 == 1 && temp == 0) {
 					player2 += pit9 + pit4;
 					pit9 = 0;
 					pit4 = 0;
@@ -1707,7 +1765,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit10;
 				--temp;
-				if(pit10 == 1) {
+				if(pit10 == 1 && temp == 0) {
 					player2 += pit10 + pit3;
 					pit10 = 0;
 					pit3 = 0;
@@ -1717,7 +1775,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit11;
 				--temp;
-				if(pit11 == 1) {
+				if(pit11 == 1 && temp == 0) {
 					player2 += pit11 + pit2;
 					pit11 = 0;
 					pit2 = 0;
@@ -1727,7 +1785,7 @@ public class BoardModel {
 			if(temp > 0) {
 				++pit12;
 				--temp;
-				if(pit12 == 1) {
+				if(pit12 == 1 && temp == 0) {
 					player2 += pit12 + pit1;
 					pit12 = 0;
 					pit1 = 0;
@@ -1737,5 +1795,31 @@ public class BoardModel {
 		}
 		// Player picked an empty pit
 		return false;
+	}
+
+	public boolean checkForWin() {
+		if ((pit1 + pit2 + pit3 + pit4 + pit5 + pit6 == 0) || 
+				(pit7 + pit8 + pit9 + pit10 + pit11 + pit12 == 0)) {
+			return true;
+		}
+		return false;
+	}
+
+	public void newGame() {
+		pit1 = 4;
+		pit2 = 4;
+		pit3 = 4;
+		pit4 = 4;
+		pit5 = 4;
+		pit6 = 4;
+		pit7 = 4;
+		pit8 = 4;
+		pit9 = 4;
+		pit10 = 4;
+		pit11 = 4;
+		pit12 = 4;
+
+		player1 = 0;
+		player2 = 0;
 	}
 }
