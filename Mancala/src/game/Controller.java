@@ -324,7 +324,7 @@ public class Controller {
 			view.setPlayer1(model.getPlayer1());
 			view.setPlayer2(model.getPlayer2());
 		}
-	}
+	} 
 	
 	class Pit10Listener implements ActionListener {
 		@Override
@@ -404,6 +404,6 @@ public class Controller {
 			view.setPit12(model.getPit12());
 			view.setPlayer1(model.getPlayer1());
 			view.setPlayer2(model.getPlayer2());
-		}	
+		}
 	}
 }

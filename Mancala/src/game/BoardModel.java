@@ -1,8 +1,6 @@
 package game;
 
 /**
- * Credit for guide to ActionListeners and event processing goes to Prof. 
- * Dean Hougen at the University of Oklahoma
  * @author Jonathan Dasher
  *
  */
@@ -175,7 +173,7 @@ public class BoardModel {
 				++pit7;
 				--temp;
 				if(pit7 == 1 && temp == 0) {
-					player1 += pit7 += pit6;
+					player1 += pit7 + pit6;
 					pit7 = 0;
 					pit6 = 0;
 					return false;
@@ -306,7 +304,7 @@ public class BoardModel {
 				++pit7;
 				--temp;
 				if(pit7 == 1 && temp == 0) {
-					player1 += pit7 += pit6;
+					player1 += pit7 + pit6;
 					pit7 = 0;
 					pit6 = 0;
 					return false;
@@ -437,7 +435,7 @@ public class BoardModel {
 				++pit7;
 				--temp;
 				if(pit7 == 1 && temp == 0) {
-					player1 += pit7 += pit6;
+					player1 += pit7 + pit6;
 					pit7 = 0;
 					pit6 = 0;
 					return false;
@@ -568,7 +566,7 @@ public class BoardModel {
 				++pit7;
 				--temp;
 				if(pit7 == 1 && temp == 0) {
-					player1 += pit7 += pit6;
+					player1 += pit7 + pit6;
 					pit7 = 0;
 					pit6 = 0;
 					return false;
@@ -699,7 +697,7 @@ public class BoardModel {
 				++pit7;
 				--temp;
 				if(pit7 == 1 && temp == 0) {
-					player1 += pit7 += pit6;
+					player1 += pit7 + pit6;
 					pit7 = 0;
 					pit6 = 0;
 					return false;
@@ -830,7 +828,7 @@ public class BoardModel {
 				++pit7;
 				--temp;
 				if(pit7 == 1 && temp == 0) {
-					player1 += pit7 += pit6;
+					player1 += pit7 + pit6;
 					pit7 = 0;
 					pit6 = 0;
 					return false;
@@ -1081,7 +1079,7 @@ public class BoardModel {
 				++pit7;
 				--temp;
 				if(pit7 == 1 && temp == 0) {
-					player2 += pit7 += pit6;
+					player2 += pit7 + pit6;
 					pit7 = 0;
 					pit6 = 0;
 					return false;
@@ -1212,7 +1210,7 @@ public class BoardModel {
 				++pit7;
 				--temp;
 				if(pit7 == 1 && temp == 0) {
-					player2 += pit7 += pit6;
+					player2 += pit7 + pit6;
 					pit7 = 0;
 					pit6 = 0;
 					return false;
@@ -1343,7 +1341,7 @@ public class BoardModel {
 				++pit7;
 				--temp;
 				if(pit7 == 1 && temp == 0) {
-					player2 += pit7 += pit6;
+					player2 += pit7 + pit6;
 					pit7 = 0;
 					pit6 = 0;
 					return false;
@@ -1474,7 +1472,7 @@ public class BoardModel {
 				++pit7;
 				--temp;
 				if(pit7 == 1 && temp == 0) {
-					player2 += pit7 += pit6;
+					player2 += pit7 + pit6;
 					pit7 = 0;
 					pit6 = 0;
 					return false;
@@ -1605,7 +1603,7 @@ public class BoardModel {
 				++pit7;
 				--temp;
 				if(pit7 == 1 && temp == 0) {
-					player2 += pit7 += pit6;
+					player2 += pit7 + pit6;
 					pit7 = 0;
 					pit6 = 0;
 					return false;
@@ -1736,7 +1734,7 @@ public class BoardModel {
 				++pit7;
 				--temp;
 				if(pit7 == 1 && temp == 0) {
-					player2 += pit7 += pit6;
+					player2 += pit7 + pit6;
 					pit7 = 0;
 					pit6 = 0;
 					return false;
