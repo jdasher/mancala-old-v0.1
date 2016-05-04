@@ -1820,4 +1820,24 @@ public class BoardModel {
 		player1 = 0;
 		player2 = 0;
 	}
+	
+	public void resumeGame(int pit1, int pit2, int pit3,
+			int pit4, int pit5, int pit6, int pit7, int pit8,
+			int pit9, int pit10, int pit11, int pit12, 
+			int player1, int player2) {
+		this.pit1 = pit1;
+		this.pit2 = pit2;
+		this.pit3 = pit3;
+		this.pit4 = pit4;
+		this.pit5 = pit5;
+		this.pit6 = pit6;
+		this.pit7 = pit7;
+		this.pit8 = pit8;
+		this.pit9 = pit9;
+		this.pit10 = pit10;
+		this.pit11 = pit11;
+		this.pit12 = pit12;
+		this.player1 = player1;
+		this.player2 = player2;
+	}
 }

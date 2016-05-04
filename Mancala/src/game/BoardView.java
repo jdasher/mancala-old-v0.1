@@ -34,8 +34,10 @@ public class BoardView {
 	private JMenuItem loadGame = new JMenuItem();
 	private JMenuItem exitGame = new JMenuItem();
 	
+	// TODO 
+	// Figure out if necessary
 	// Model
-	private BoardModel model;
+	//private BoardModel model;
 	
 	// Buttons to represent game board
 	private JButton pit1 = new JButton("4");
@@ -169,10 +171,14 @@ public class BoardView {
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
+	/**
+	 * TODO
+	 * Figure out if this is necessary
 	public void setModel(BoardModel model) {
 		// Sets model
 		this.model = model;
 	}
+	*/
 	
 	class Pit1Listener implements ActionListener {
 		@Override

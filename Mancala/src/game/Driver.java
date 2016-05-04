@@ -15,7 +15,8 @@ public class Driver {
 	 */
 	public static void main(String[] args) {
 		// Linking model to view
-		view.setModel(model);
+		// TODO Figure out if necessary
+		//view.setModel(model);
 		// Linking model to controller
 		controller.setModel(model);
 		// Linking view to controller
