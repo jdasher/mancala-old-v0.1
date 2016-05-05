@@ -10,7 +10,6 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 import javax.swing.JDialog;
-import javax.swing.JOptionPane;
 
 /**
  * @author Jonathan Dasher
@@ -183,9 +182,6 @@ public class Controller {
 				view.player2Turn();
 				playerTurn = 2;
 			}
-			if(model.checkForWin()) {
-				Controller.this.gameOver();
-			}
 			view.setPit1(model.getPit1());
 			view.setPit2(model.getPit2());
 			view.setPit3(model.getPit3());
@@ -200,6 +196,10 @@ public class Controller {
 			view.setPit12(model.getPit12());
 			view.setPlayer1(model.getPlayer1());
 			view.setPlayer2(model.getPlayer2());
+			
+			if(model.checkForWin()) {
+				Controller.this.gameOver();
+			}
 		}
 	}
 
@@ -215,9 +215,7 @@ public class Controller {
 				view.player2Turn();
 				playerTurn = 2;
 			}
-			if(model.checkForWin()) {
-				Controller.this.gameOver();
-			}
+			
 			view.setPit1(model.getPit1());
 			view.setPit2(model.getPit2());
 			view.setPit3(model.getPit3());
@@ -232,6 +230,11 @@ public class Controller {
 			view.setPit12(model.getPit12());
 			view.setPlayer1(model.getPlayer1());
 			view.setPlayer2(model.getPlayer2());
+			
+
+			if(model.checkForWin()) {
+				Controller.this.gameOver();
+			}
 		}
 	}
 
@@ -247,9 +250,7 @@ public class Controller {
 				view.player2Turn();	
 				playerTurn = 2;
 			}
-			if(model.checkForWin()) {
-				Controller.this.gameOver();
-			}
+			
 			view.setPit1(model.getPit1());
 			view.setPit2(model.getPit2());
 			view.setPit3(model.getPit3());
@@ -264,6 +265,11 @@ public class Controller {
 			view.setPit12(model.getPit12());
 			view.setPlayer1(model.getPlayer1());
 			view.setPlayer2(model.getPlayer2());
+			
+
+			if(model.checkForWin()) {
+				Controller.this.gameOver();
+			}
 		}
 	}
 
@@ -279,9 +285,7 @@ public class Controller {
 				view.player2Turn();	
 				playerTurn = 2;
 			}
-			if(model.checkForWin()) {
-				Controller.this.gameOver();
-			}
+			
 			view.setPit1(model.getPit1());
 			view.setPit2(model.getPit2());
 			view.setPit3(model.getPit3());
@@ -296,6 +300,11 @@ public class Controller {
 			view.setPit12(model.getPit12());
 			view.setPlayer1(model.getPlayer1());
 			view.setPlayer2(model.getPlayer2());
+		
+
+			if(model.checkForWin()) {
+				Controller.this.gameOver();
+			}
 		}
 	}
 
@@ -311,9 +320,8 @@ public class Controller {
 				view.player2Turn();	
 				playerTurn = 2;
 			}
-			if(model.checkForWin()) {
-				Controller.this.gameOver();
-			}
+			
+
 			view.setPit1(model.getPit1());
 			view.setPit2(model.getPit2());
 			view.setPit3(model.getPit3());
@@ -328,6 +336,11 @@ public class Controller {
 			view.setPit12(model.getPit12());
 			view.setPlayer1(model.getPlayer1());
 			view.setPlayer2(model.getPlayer2());
+
+
+			if(model.checkForWin()) {
+				Controller.this.gameOver();
+			}
 		}
 	}
 
@@ -343,9 +356,7 @@ public class Controller {
 				view.player2Turn();	
 				playerTurn = 2;
 			}
-			if(model.checkForWin()) {
-				Controller.this.gameOver();
-			}
+			
 			view.setPit1(model.getPit1());
 			view.setPit2(model.getPit2());
 			view.setPit3(model.getPit3());
@@ -360,6 +371,11 @@ public class Controller {
 			view.setPit12(model.getPit12());
 			view.setPlayer1(model.getPlayer1());
 			view.setPlayer2(model.getPlayer2());
+		
+
+			if(model.checkForWin()) {
+				Controller.this.gameOver();
+			}
 		}
 	}
 
@@ -375,9 +391,7 @@ public class Controller {
 				view.player1Turn();
 				playerTurn = 1;
 			}
-			if(model.checkForWin()) {
-				Controller.this.gameOver();
-			}
+			
 			view.setPit1(model.getPit1());
 			view.setPit2(model.getPit2());
 			view.setPit3(model.getPit3());
@@ -392,6 +406,11 @@ public class Controller {
 			view.setPit12(model.getPit12());
 			view.setPlayer1(model.getPlayer1());
 			view.setPlayer2(model.getPlayer2());
+		
+
+			if(model.checkForWin()) {
+				Controller.this.gameOver();
+			}
 		}
 	}
 
@@ -407,9 +426,7 @@ public class Controller {
 				view.player1Turn();
 				playerTurn = 1;
 			}
-			if(model.checkForWin()) {
-				Controller.this.gameOver();
-			}
+			
 			view.setPit1(model.getPit1());
 			view.setPit2(model.getPit2());
 			view.setPit3(model.getPit3());
@@ -424,6 +441,11 @@ public class Controller {
 			view.setPit12(model.getPit12());
 			view.setPlayer1(model.getPlayer1());
 			view.setPlayer2(model.getPlayer2());
+		
+
+			if(model.checkForWin()) {
+				Controller.this.gameOver();
+			}
 		}
 	}
 
@@ -439,9 +461,7 @@ public class Controller {
 				view.player1Turn();
 				playerTurn = 1;
 			}
-			if(model.checkForWin()) {
-				Controller.this.gameOver();
-			}
+			
 			view.setPit1(model.getPit1());
 			view.setPit2(model.getPit2());
 			view.setPit3(model.getPit3());
@@ -456,6 +476,11 @@ public class Controller {
 			view.setPit12(model.getPit12());
 			view.setPlayer1(model.getPlayer1());
 			view.setPlayer2(model.getPlayer2());
+		
+
+			if(model.checkForWin()) {
+				Controller.this.gameOver();
+			}
 		}
 	} 
 
@@ -471,9 +496,7 @@ public class Controller {
 				view.player1Turn();
 				playerTurn = 1;
 			}
-			if(model.checkForWin()) {
-				Controller.this.gameOver();
-			}
+			
 			view.setPit1(model.getPit1());
 			view.setPit2(model.getPit2());
 			view.setPit3(model.getPit3());
@@ -488,6 +511,11 @@ public class Controller {
 			view.setPit12(model.getPit12());
 			view.setPlayer1(model.getPlayer1());
 			view.setPlayer2(model.getPlayer2());
+		
+
+			if(model.checkForWin()) {
+				Controller.this.gameOver();
+			}
 		}
 	}
 
@@ -503,9 +531,7 @@ public class Controller {
 				view.player1Turn();
 				playerTurn = 1;
 			}
-			if(model.checkForWin()) {
-				Controller.this.gameOver();
-			}
+			
 			view.setPit1(model.getPit1());
 			view.setPit2(model.getPit2());
 			view.setPit3(model.getPit3());
@@ -520,6 +546,11 @@ public class Controller {
 			view.setPit12(model.getPit12());
 			view.setPlayer1(model.getPlayer1());
 			view.setPlayer2(model.getPlayer2());
+		
+
+			if(model.checkForWin()) {
+				Controller.this.gameOver();
+			}
 		}
 	}
 
@@ -535,9 +566,7 @@ public class Controller {
 				view.player1Turn();
 				playerTurn = 1;
 			}
-			if(model.checkForWin()) {
-				Controller.this.gameOver();
-			}
+			
 			view.setPit1(model.getPit1());
 			view.setPit2(model.getPit2());
 			view.setPit3(model.getPit3());
@@ -552,6 +581,11 @@ public class Controller {
 			view.setPit12(model.getPit12());
 			view.setPlayer1(model.getPlayer1());
 			view.setPlayer2(model.getPlayer2());
+		
+
+			if(model.checkForWin()) {
+				Controller.this.gameOver();
+			}
 		}
 	}
 
