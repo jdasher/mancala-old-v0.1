@@ -10,6 +10,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 
 /**
  * @author Jonathan Dasher
@@ -572,20 +573,21 @@ public class Controller {
 		int player2Score = Integer.parseInt(model.getPlayer2());
 
 		if(gameOver1 == 0 || gameOver2 == 0) {
+			JDialog win1 = new JDialog();
+			WinDialog win;
 			if(player1Score > player2Score) {
 				System.out.println("Player 1 Wins");
-				WinDialog win = new WinDialog("Player 1");
+				win = new WinDialog("Player 1");
 				win.addQuitListener(new QuitListener());
-				JDialog win1 = win.createDialog(view.mainFrame, "You Won!");
+				win1 = win.createDialog(view.mainFrame, "You Won!");
 				win1.setVisible(true);
 			} else {
 				System.out.println("Player 2 Wins");
-				WinDialog win = new WinDialog("Player 2");
+				win = new WinDialog("Player 2");
 				win.addQuitListener(new QuitListener());
-				JDialog win1 = win.createDialog(view.mainFrame, "You Won!");
+				win1 = win.createDialog(view.mainFrame, "You Won!");
 				win1.setVisible(true);
 			}
-
 			model.newGame();
 			view.setPit1(model.getPit1());
 			view.setPit2(model.getPit2());

@@ -8,9 +8,8 @@ import javax.swing.JOptionPane;
 public class WinDialog extends JOptionPane {
 
 	private static final long serialVersionUID = 4598436296065501578L;
-	JButton newGame = new JButton("New Game");
 	JButton quitGame = new JButton("Quit");
-	Object[] options = {newGame, quitGame};
+	Object[] options = {"New game", quitGame};
 
 	WinDialog(String winner) {
 		createDialog("You Won!");
