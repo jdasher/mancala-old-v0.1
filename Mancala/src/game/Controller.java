@@ -91,7 +91,7 @@ public class Controller {
 	class AIListener implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			// TODO Add AI and switch player 2 to AI
+			// Add hard mode dialog and option
 			view.setAI(false);
 			view.setTwoPlayer(true);
 			

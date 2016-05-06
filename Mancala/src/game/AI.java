@@ -1,6 +1,9 @@
 package game;
 
 public class AI {
+	// TODO
+	// Add hard mode variable and hard mode logic
+	
 	// 12 Mancala pits
 	int pit1;
 	int pit2;
