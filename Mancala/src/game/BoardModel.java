@@ -1840,4 +1840,32 @@ public class BoardModel {
 		this.player1 = player1;
 		this.player2 = player2;
 	}
+	
+	public int endGamePlayer1() {
+		int ret = pit1 + pit2 + pit3 + pit4 + pit5 + pit6;
+		
+		player1 += ret;
+		pit1 = 0;
+		pit2 = 0;
+		pit3 = 0;
+		pit4 = 0;
+		pit5 = 0;
+		pit6 = 0;
+		
+		return ret;
+	}
+	
+	public int endGamePlayer2() {
+		int ret = pit7 + pit8 + pit9 + pit10 + pit11 + pit12;
+
+		player2 += ret;
+		pit7 = 0;
+		pit8 = 0;
+		pit9 = 0;
+		pit10 = 0;
+		pit11 = 0;
+		pit12 = 0;
+		
+		return ret;
+	}
 }

@@ -603,10 +603,27 @@ public class Controller {
 				Integer.parseInt(model.getPit10()) +
 				Integer.parseInt(model.getPit11()) +
 				Integer.parseInt(model.getPit12());
-		int player1Score = Integer.parseInt(model.getPlayer1());
-		int player2Score = Integer.parseInt(model.getPlayer2());
-
+		
 		if(gameOver1 == 0 || gameOver2 == 0) {
+			
+			int player1Score = Integer.parseInt(model.getPlayer1()) + model.endGamePlayer1();
+			int player2Score = Integer.parseInt(model.getPlayer2()) + model.endGamePlayer2();
+			
+			view.setPit1(model.getPit1());
+			view.setPit2(model.getPit2());
+			view.setPit3(model.getPit3());
+			view.setPit4(model.getPit4());
+			view.setPit5(model.getPit5());
+			view.setPit6(model.getPit6());
+			view.setPit7(model.getPit7());
+			view.setPit8(model.getPit8());
+			view.setPit9(model.getPit9());
+			view.setPit10(model.getPit10());
+			view.setPit11(model.getPit11());
+			view.setPit12(model.getPit12());
+			view.setPlayer1(model.getPlayer1());
+			view.setPlayer2(model.getPlayer2());
+			
 			JDialog win1 = new JDialog();
 			WinDialog win;
 			if(player1Score > player2Score) {
