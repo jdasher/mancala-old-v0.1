@@ -2,6 +2,7 @@ package game;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -10,6 +11,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 
 /**
  * @author Jonathan Dasher
@@ -33,6 +35,10 @@ public class Controller {
 		this.view.addSaveGameListener(new SaveGameListener());
 		this.view.addLoadGameListener(new LoadGameListener());
 		this.view.addExitGameListener(new ExitGameListener());
+		this.view.addGraphicsListener(new GraphicsListener());
+		this.view.addTextListener(new TextListener());
+		this.view.addAIListener(new AIListener());
+		this.view.addTwoPlayerListener(new TwoPlayerListener());
 		// Game button listeners
 		this.view.addPit1Listener(new Pit1Listener());
 		this.view.addPit2Listener(new Pit2Listener());
@@ -47,8 +53,54 @@ public class Controller {
 		this.view.addPit11Listener(new Pit11Listener());
 		this.view.addPit12Listener(new Pit12Listener());
 
+		this.view.setTwoPlayer(false);
+		this.view.setAI(true);
+		this.view.setGraphics(true);
+		this.view.setText(false);
+		
+		this.view.setLoad(false);
+		File save = new File(".save");
+		if(save.exists()) 
+			this.view.setLoad(true);
+		
 		this.view.player1Turn();
 		playerTurn = 1;
+	}
+	
+	class GraphicsListener implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Add graphics and switch between 
+			view.setText(true);
+			view.setGraphics(false);
+		}
+	}
+	
+	class TextListener implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Add switch between graphics/text
+			view.setText(false);
+			view.setGraphics(true);
+		}
+	}
+	
+	class AIListener implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Add AI and switch player 2 to AI
+			view.setAI(false);
+			view.setTwoPlayer(true);					
+		}
+	}
+	
+	class TwoPlayerListener implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Add switch between 2 player and AI
+			view.setAI(true);
+			view.setTwoPlayer(false);
+		}
 	}
 
 	class NewGameListener implements ActionListener {
@@ -95,56 +147,66 @@ public class Controller {
 			stuffToSave.add(playerTurn);
 			FileOutputStream fileStream;
 			ObjectOutputStream out = null;
-			try {			
-				fileStream = new FileOutputStream(".save");
-				out = new ObjectOutputStream(fileStream);
-				out.writeObject(stuffToSave);
-			} catch (IOException e1) {
-				//TODO
-			} 
+			boolean saved = false;
+			while(!saved) {
+				try {			
+					fileStream = new FileOutputStream(".save");
+					out = new ObjectOutputStream(fileStream);
+					out.writeObject(stuffToSave);
+					saved = true;
+				} catch (IOException e1) {
+					saved = false;
+				} 
+			}
 		}
 	}
 
 	class LoadGameListener implements ActionListener {
+		@SuppressWarnings("unchecked")
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			ArrayList<Object> savedStuff = new ArrayList<Object>();
 			FileInputStream fileStream;
 			ObjectInputStream in = null;
+
 			try {
-			fileStream = new FileInputStream(".save");
-			in = new ObjectInputStream(fileStream);
-			savedStuff = (ArrayList<Object>) in.readObject();
-			int pit1 = Integer.parseInt((String) savedStuff.get(0));
-			int pit2 = Integer.parseInt((String) savedStuff.get(1));
-			int pit3 = Integer.parseInt((String) savedStuff.get(2));
-			int pit4 = Integer.parseInt((String) savedStuff.get(3));
-			int pit5 = Integer.parseInt((String) savedStuff.get(4));
-			int pit6 = Integer.parseInt((String) savedStuff.get(5));
-			int pit7 = Integer.parseInt((String) savedStuff.get(6));
-			int pit8 = Integer.parseInt((String) savedStuff.get(7));
-			int pit9 = Integer.parseInt((String) savedStuff.get(8));
-			int pit10 = Integer.parseInt((String) savedStuff.get(9));
-			int pit11 = Integer.parseInt((String) savedStuff.get(10));
-			int pit12 = Integer.parseInt((String) savedStuff.get(11));
-			int player1 = Integer.parseInt((String) savedStuff.get(12));
-			int player2 = Integer.parseInt((String) savedStuff.get(13));
-			playerTurn = (int) savedStuff.get(14);
-			
-			model.resumeGame(pit1, pit2, pit3, pit4, pit5, pit6, pit7, pit8,
-					pit9, pit10, pit11, pit12, player1, player2);
-			
-			if(playerTurn == 1) 
-				view.player1Turn();
-			else 
-				view.player2Turn();
-			
+				fileStream = new FileInputStream(".save");
+				in = new ObjectInputStream(fileStream);
+				savedStuff = (ArrayList<Object>) in.readObject();
+				int pit1 = Integer.parseInt((String) savedStuff.get(0));
+				int pit2 = Integer.parseInt((String) savedStuff.get(1));
+				int pit3 = Integer.parseInt((String) savedStuff.get(2));
+				int pit4 = Integer.parseInt((String) savedStuff.get(3));
+				int pit5 = Integer.parseInt((String) savedStuff.get(4));
+				int pit6 = Integer.parseInt((String) savedStuff.get(5));
+				int pit7 = Integer.parseInt((String) savedStuff.get(6));
+				int pit8 = Integer.parseInt((String) savedStuff.get(7));
+				int pit9 = Integer.parseInt((String) savedStuff.get(8));
+				int pit10 = Integer.parseInt((String) savedStuff.get(9));
+				int pit11 = Integer.parseInt((String) savedStuff.get(10));
+				int pit12 = Integer.parseInt((String) savedStuff.get(11));
+				int player1 = Integer.parseInt((String) savedStuff.get(12));
+				int player2 = Integer.parseInt((String) savedStuff.get(13));
+				playerTurn = (int) savedStuff.get(14);
+
+				model.resumeGame(pit1, pit2, pit3, pit4, pit5, pit6, pit7, pit8,
+						pit9, pit10, pit11, pit12, player1, player2);
+
+				if(playerTurn == 1) 
+					view.player1Turn();
+				else 
+					view.player2Turn();
+
 			} catch (IOException e1) {
-				// TODO
+				JOptionPane.showMessageDialog(view.mainFrame, 
+						"No save file found!", "No save file found!",
+						JOptionPane.WARNING_MESSAGE);
 			} catch (ClassNotFoundException e1) {
-				// TODO
+				JOptionPane.showMessageDialog(view.mainFrame, 
+						"Load failed", "Load failed",
+						JOptionPane.WARNING_MESSAGE);
 			}
-			
+
 			view.setPit1(model.getPit1());
 			view.setPit2(model.getPit2());
 			view.setPit3(model.getPit3());
@@ -159,7 +221,7 @@ public class Controller {
 			view.setPit12(model.getPit12());
 			view.setPlayer1(model.getPlayer1());
 			view.setPlayer2(model.getPlayer2());
-			
+
 		}
 	}
 
@@ -196,7 +258,7 @@ public class Controller {
 			view.setPit12(model.getPit12());
 			view.setPlayer1(model.getPlayer1());
 			view.setPlayer2(model.getPlayer2());
-			
+
 			if(model.checkForWin()) {
 				Controller.this.gameOver();
 			}
@@ -215,7 +277,7 @@ public class Controller {
 				view.player2Turn();
 				playerTurn = 2;
 			}
-			
+
 			view.setPit1(model.getPit1());
 			view.setPit2(model.getPit2());
 			view.setPit3(model.getPit3());
@@ -230,7 +292,7 @@ public class Controller {
 			view.setPit12(model.getPit12());
 			view.setPlayer1(model.getPlayer1());
 			view.setPlayer2(model.getPlayer2());
-			
+
 
 			if(model.checkForWin()) {
 				Controller.this.gameOver();
@@ -250,7 +312,7 @@ public class Controller {
 				view.player2Turn();	
 				playerTurn = 2;
 			}
-			
+
 			view.setPit1(model.getPit1());
 			view.setPit2(model.getPit2());
 			view.setPit3(model.getPit3());
@@ -265,7 +327,7 @@ public class Controller {
 			view.setPit12(model.getPit12());
 			view.setPlayer1(model.getPlayer1());
 			view.setPlayer2(model.getPlayer2());
-			
+
 
 			if(model.checkForWin()) {
 				Controller.this.gameOver();
@@ -285,7 +347,7 @@ public class Controller {
 				view.player2Turn();	
 				playerTurn = 2;
 			}
-			
+
 			view.setPit1(model.getPit1());
 			view.setPit2(model.getPit2());
 			view.setPit3(model.getPit3());
@@ -300,7 +362,7 @@ public class Controller {
 			view.setPit12(model.getPit12());
 			view.setPlayer1(model.getPlayer1());
 			view.setPlayer2(model.getPlayer2());
-		
+
 
 			if(model.checkForWin()) {
 				Controller.this.gameOver();
@@ -320,7 +382,7 @@ public class Controller {
 				view.player2Turn();	
 				playerTurn = 2;
 			}
-			
+
 
 			view.setPit1(model.getPit1());
 			view.setPit2(model.getPit2());
@@ -356,7 +418,7 @@ public class Controller {
 				view.player2Turn();	
 				playerTurn = 2;
 			}
-			
+
 			view.setPit1(model.getPit1());
 			view.setPit2(model.getPit2());
 			view.setPit3(model.getPit3());
@@ -371,7 +433,7 @@ public class Controller {
 			view.setPit12(model.getPit12());
 			view.setPlayer1(model.getPlayer1());
 			view.setPlayer2(model.getPlayer2());
-		
+
 
 			if(model.checkForWin()) {
 				Controller.this.gameOver();
@@ -391,7 +453,7 @@ public class Controller {
 				view.player1Turn();
 				playerTurn = 1;
 			}
-			
+
 			view.setPit1(model.getPit1());
 			view.setPit2(model.getPit2());
 			view.setPit3(model.getPit3());
@@ -406,7 +468,7 @@ public class Controller {
 			view.setPit12(model.getPit12());
 			view.setPlayer1(model.getPlayer1());
 			view.setPlayer2(model.getPlayer2());
-		
+
 
 			if(model.checkForWin()) {
 				Controller.this.gameOver();
@@ -426,7 +488,7 @@ public class Controller {
 				view.player1Turn();
 				playerTurn = 1;
 			}
-			
+
 			view.setPit1(model.getPit1());
 			view.setPit2(model.getPit2());
 			view.setPit3(model.getPit3());
@@ -441,7 +503,7 @@ public class Controller {
 			view.setPit12(model.getPit12());
 			view.setPlayer1(model.getPlayer1());
 			view.setPlayer2(model.getPlayer2());
-		
+
 
 			if(model.checkForWin()) {
 				Controller.this.gameOver();
@@ -461,7 +523,7 @@ public class Controller {
 				view.player1Turn();
 				playerTurn = 1;
 			}
-			
+
 			view.setPit1(model.getPit1());
 			view.setPit2(model.getPit2());
 			view.setPit3(model.getPit3());
@@ -476,7 +538,7 @@ public class Controller {
 			view.setPit12(model.getPit12());
 			view.setPlayer1(model.getPlayer1());
 			view.setPlayer2(model.getPlayer2());
-		
+
 
 			if(model.checkForWin()) {
 				Controller.this.gameOver();
@@ -496,7 +558,7 @@ public class Controller {
 				view.player1Turn();
 				playerTurn = 1;
 			}
-			
+
 			view.setPit1(model.getPit1());
 			view.setPit2(model.getPit2());
 			view.setPit3(model.getPit3());
@@ -511,7 +573,7 @@ public class Controller {
 			view.setPit12(model.getPit12());
 			view.setPlayer1(model.getPlayer1());
 			view.setPlayer2(model.getPlayer2());
-		
+
 
 			if(model.checkForWin()) {
 				Controller.this.gameOver();
@@ -531,7 +593,7 @@ public class Controller {
 				view.player1Turn();
 				playerTurn = 1;
 			}
-			
+
 			view.setPit1(model.getPit1());
 			view.setPit2(model.getPit2());
 			view.setPit3(model.getPit3());
@@ -546,7 +608,7 @@ public class Controller {
 			view.setPit12(model.getPit12());
 			view.setPlayer1(model.getPlayer1());
 			view.setPlayer2(model.getPlayer2());
-		
+
 
 			if(model.checkForWin()) {
 				Controller.this.gameOver();
@@ -566,7 +628,7 @@ public class Controller {
 				view.player1Turn();
 				playerTurn = 1;
 			}
-			
+
 			view.setPit1(model.getPit1());
 			view.setPit2(model.getPit2());
 			view.setPit3(model.getPit3());
@@ -581,7 +643,7 @@ public class Controller {
 			view.setPit12(model.getPit12());
 			view.setPlayer1(model.getPlayer1());
 			view.setPlayer2(model.getPlayer2());
-		
+
 
 			if(model.checkForWin()) {
 				Controller.this.gameOver();
@@ -603,12 +665,12 @@ public class Controller {
 				Integer.parseInt(model.getPit10()) +
 				Integer.parseInt(model.getPit11()) +
 				Integer.parseInt(model.getPit12());
-		
+
 		if(gameOver1 == 0 || gameOver2 == 0) {
-			
+
 			int player1Score = Integer.parseInt(model.getPlayer1()) + model.endGamePlayer1();
 			int player2Score = Integer.parseInt(model.getPlayer2()) + model.endGamePlayer2();
-			
+
 			view.setPit1(model.getPit1());
 			view.setPit2(model.getPit2());
 			view.setPit3(model.getPit3());
@@ -623,7 +685,7 @@ public class Controller {
 			view.setPit12(model.getPit12());
 			view.setPlayer1(model.getPlayer1());
 			view.setPlayer2(model.getPlayer2());
-			
+
 			JDialog win1 = new JDialog();
 			WinDialog win;
 			if(player1Score > player2Score) {

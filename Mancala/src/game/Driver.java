@@ -9,14 +9,10 @@ public class Driver {
 	static BoardModel model = new BoardModel();
 	static BoardView view = new BoardView();
 	static Controller controller = new Controller();
-	
 	/**
 	 * @param args Command line arguments
 	 */
 	public static void main(String[] args) {
-		// Linking model to view
-		// TODO Figure out if necessary
-		//view.setModel(model);
 		// Linking model to controller
 		controller.setModel(model);
 		// Linking view to controller

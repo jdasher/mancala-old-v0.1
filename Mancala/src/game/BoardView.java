@@ -4,7 +4,6 @@ import java.awt.BorderLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -28,16 +27,17 @@ public class BoardView {
 	
 	// Menu bar and items
 	private JMenuBar mainMenu = new JMenuBar();
-	private JMenu optionsMenu = new JMenu();
+	private JMenu gameMenu = new JMenu();
 	private JMenuItem newGame = new JMenuItem();
 	private JMenuItem saveGame = new JMenuItem();
 	private JMenuItem loadGame = new JMenuItem();
 	private JMenuItem exitGame = new JMenuItem();
-	
-	// TODO 
-	// Figure out if necessary
-	// Model
-	//private BoardModel model;
+	private JMenu optionsMenu = new JMenu();
+	private JMenuItem graphics = new JMenuItem();
+	private JMenuItem text = new JMenuItem();
+	private JMenuItem twoPlayer = new JMenuItem();
+	private JMenuItem AI = new JMenuItem();
+	private JMenu spacer = new JMenu();
 	
 	// Buttons to represent game board
 	private JButton pit1 = new JButton("4");
@@ -66,15 +66,30 @@ public class BoardView {
 		saveGame.setText("Save");
 		loadGame.setText("Load");
 		exitGame.setText("Exit");
-		optionsMenu.setText("Game");
+		gameMenu.setText("Game");
 		
-		// Add new and save game options to options menu
-		optionsMenu.add(newGame);
-		optionsMenu.add(saveGame);
-		optionsMenu.add(loadGame);
-		optionsMenu.add(exitGame);
+		optionsMenu.setText("Options");
+		graphics.setText("Graphics");
+		text.setText("Text");
+		twoPlayer.setText("2 player");
+		AI.setText("Play AI");
+		
+		// Add new and save game options to game menu
+		gameMenu.add(newGame);
+		gameMenu.add(saveGame);
+		gameMenu.add(loadGame);
+		gameMenu.add(exitGame);
+				
+		optionsMenu.add(text);
+		optionsMenu.add(graphics);
+		optionsMenu.add(twoPlayer);
+		optionsMenu.add(AI);
 		
 		// Add Options menu to main bar
+		mainMenu.add(gameMenu);
+		spacer.setText("    ");
+		spacer.setEnabled(false);
+		mainMenu.add(spacer);
 		mainMenu.add(optionsMenu);
 		menuPanel.add(mainMenu);
 		
@@ -170,140 +185,42 @@ public class BoardView {
 		mainFrame.setVisible(true);
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
-
-	/**
-	 * TODO
-	 * Figure out if this is necessary
-	public void setModel(BoardModel model) {
-		// Sets model
-		this.model = model;
-	}
-	*/
 	
-	class Pit1Listener implements ActionListener {
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
+	public void setLoad(boolean tf) {
+		loadGame.setEnabled(tf);
 	}
 	
-	class Pit2Listener implements ActionListener {
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
+	public void setGraphics(boolean tf) {
+		graphics.setEnabled(tf);
 	}
 	
-	class Pit3Listener implements ActionListener {
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
-	}	
-	class Pit4Listener implements ActionListener {
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
+	public void setAI(boolean tf) {
+		AI.setEnabled(tf);
 	}
 	
-	class Pit5Listener implements ActionListener {
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
+	public void setText(boolean tf) {
+		text.setEnabled(tf);
 	}
 	
-	class Pit6Listener implements ActionListener {
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
-	}	
-	class Pit7Listener implements ActionListener {
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
+	public void setTwoPlayer(boolean tf) {
+		twoPlayer.setEnabled(tf);
 	}
 	
-	class Pit8Listener implements ActionListener {
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
+	public void addGraphicsListener(ActionListener graphicsListener) {
+		graphics.addActionListener(graphicsListener);
 	}
 	
-	class Pit9Listener implements ActionListener {
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
-	}	
-	class Pit10Listener implements ActionListener {
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
+	public void addTextListener(ActionListener textListener) {
+		text.addActionListener(textListener);
 	}
 	
-	class Pit11Listener implements ActionListener {
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
+	public void addTwoPlayerListener(ActionListener twoPlayerListener) {
+		twoPlayer.addActionListener(twoPlayerListener);
 	}
 	
-	class Pit12Listener implements ActionListener {
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
+	public void addAIListener(ActionListener AIListener) {
+		AI.addActionListener(AIListener);
 	}
-	
-	class Player1Listener implements ActionListener {
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
-	}
-	
-	class Player2Listener implements ActionListener {
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	public void addNewGameListener(ActionListener newGameListener) {
 		newGame.addActionListener(newGameListener);
