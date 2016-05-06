@@ -206,6 +206,30 @@ public class BoardView {
 		twoPlayer.setEnabled(tf);
 	}
 	
+	public void setPit7(boolean tf) {
+		pit7.setEnabled(tf);
+	}
+	
+	public void setPit8(boolean tf) {
+		pit8.setEnabled(tf);
+	}
+	
+	public void setPit9(boolean tf) {
+		pit9.setEnabled(tf);
+	}
+	
+	public void setPit10(boolean tf) {
+		pit10.setEnabled(tf);
+	}
+	
+	public void setPit11(boolean tf) {
+		pit11.setEnabled(tf);
+	}
+	
+	public void setPit12(boolean tf) {
+		pit12.setEnabled(tf);
+	}
+		
 	public void addGraphicsListener(ActionListener graphicsListener) {
 		graphics.addActionListener(graphicsListener);
 	}

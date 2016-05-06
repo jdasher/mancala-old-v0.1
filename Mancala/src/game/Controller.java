@@ -23,6 +23,9 @@ public class Controller {
 	private BoardView view;
 	// Needed for save/load game
 	private int playerTurn;
+	
+	private AI ai = new AI();
+	private char aiPlaying = 'n';
 
 	public void setModel(BoardModel model) {
 		this.model = model;		
@@ -90,16 +93,73 @@ public class Controller {
 		public void actionPerformed(ActionEvent e) {
 			// TODO Add AI and switch player 2 to AI
 			view.setAI(false);
-			view.setTwoPlayer(true);					
+			view.setTwoPlayer(true);
+			
+			aiPlaying = 'y';
+
+			view.setPit7(false);
+			view.setPit8(false);
+			view.setPit9(false);
+			view.setPit10(false);
+			view.setPit11(false);
+			view.setPit12(false);
+			
+			model.newGame();
+			
+			view.player1Turn();
+			playerTurn = 1;
+			
+			view.setPit1(model.getPit1());
+			view.setPit2(model.getPit2());
+			view.setPit3(model.getPit3());
+			view.setPit4(model.getPit4());
+			view.setPit5(model.getPit5());
+			view.setPit6(model.getPit6());
+			view.setPit7(model.getPit7());
+			view.setPit8(model.getPit8());
+			view.setPit9(model.getPit9());
+			view.setPit10(model.getPit10());
+			view.setPit11(model.getPit11());
+			view.setPit12(model.getPit12());
+			view.setPlayer1(model.getPlayer1());
+			view.setPlayer2(model.getPlayer2());
 		}
 	}
 	
 	class TwoPlayerListener implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			// TODO Add switch between 2 player and AI
 			view.setAI(true);
 			view.setTwoPlayer(false);
+			
+			aiPlaying = 'n';
+			
+			view.setPit7(true);
+			view.setPit8(true);
+			view.setPit9(true);
+			view.setPit10(true);
+			view.setPit11(true);
+			view.setPit12(true);
+			
+			model.newGame();
+			
+			view.player1Turn();
+			playerTurn = 1;
+			
+			view.setPit1(model.getPit1());
+			view.setPit2(model.getPit2());
+			view.setPit3(model.getPit3());
+			view.setPit4(model.getPit4());
+			view.setPit5(model.getPit5());
+			view.setPit6(model.getPit6());
+			view.setPit7(model.getPit7());
+			view.setPit8(model.getPit8());
+			view.setPit9(model.getPit9());
+			view.setPit10(model.getPit10());
+			view.setPit11(model.getPit11());
+			view.setPit12(model.getPit12());
+			view.setPlayer1(model.getPlayer1());
+			view.setPlayer2(model.getPlayer2());
 		}
 	}
 
@@ -144,6 +204,7 @@ public class Controller {
 			stuffToSave.add(model.getPit12());
 			stuffToSave.add(model.getPlayer1());
 			stuffToSave.add(model.getPlayer2());
+			stuffToSave.add(aiPlaying);
 			stuffToSave.add(playerTurn);
 			FileOutputStream fileStream;
 			ObjectOutputStream out = null;
@@ -187,7 +248,8 @@ public class Controller {
 				int pit12 = Integer.parseInt((String) savedStuff.get(11));
 				int player1 = Integer.parseInt((String) savedStuff.get(12));
 				int player2 = Integer.parseInt((String) savedStuff.get(13));
-				playerTurn = (int) savedStuff.get(14);
+				aiPlaying = (char) savedStuff.get(14);
+				playerTurn = (int) savedStuff.get(15);
 
 				model.resumeGame(pit1, pit2, pit3, pit4, pit5, pit6, pit7, pit8,
 						pit9, pit10, pit11, pit12, player1, player2);
@@ -196,6 +258,14 @@ public class Controller {
 					view.player1Turn();
 				else 
 					view.player2Turn();
+				if(aiPlaying == 'y') {
+					view.setPit7(false);
+					view.setPit8(false);
+					view.setPit9(false);
+					view.setPit10(false);
+					view.setPit11(false);
+					view.setPit12(false);
+				}
 
 			} catch (IOException e1) {
 				JOptionPane.showMessageDialog(view.mainFrame, 
@@ -259,6 +329,34 @@ public class Controller {
 			view.setPlayer1(model.getPlayer1());
 			view.setPlayer2(model.getPlayer2());
 
+			if(aiPlaying == 'y' && !playAgain) {
+				view.setPit7(false);
+				view.setPit8(false);
+				view.setPit9(false);
+				view.setPit10(false);
+				view.setPit11(false);
+				view.setPit12(false);
+				ai.AITurn(model);
+				
+				view.setPit1(model.getPit1());
+				view.setPit2(model.getPit2());
+				view.setPit3(model.getPit3());
+				view.setPit4(model.getPit4());
+				view.setPit5(model.getPit5());
+				view.setPit6(model.getPit6());
+				view.setPit7(model.getPit7());
+				view.setPit8(model.getPit8());
+				view.setPit9(model.getPit9());
+				view.setPit10(model.getPit10());
+				view.setPit11(model.getPit11());
+				view.setPit12(model.getPit12());
+				view.setPlayer1(model.getPlayer1());
+				view.setPlayer2(model.getPlayer2());
+				
+				view.player1Turn();
+				playerTurn = 1;
+			}
+
 			if(model.checkForWin()) {
 				Controller.this.gameOver();
 			}
@@ -293,6 +391,33 @@ public class Controller {
 			view.setPlayer1(model.getPlayer1());
 			view.setPlayer2(model.getPlayer2());
 
+			if(aiPlaying == 'y' && !playAgain) {
+				view.setPit7(false);
+				view.setPit8(false);
+				view.setPit9(false);
+				view.setPit10(false);
+				view.setPit11(false);
+				view.setPit12(false);
+				ai.AITurn(model);
+				
+				view.setPit1(model.getPit1());
+				view.setPit2(model.getPit2());
+				view.setPit3(model.getPit3());
+				view.setPit4(model.getPit4());
+				view.setPit5(model.getPit5());
+				view.setPit6(model.getPit6());
+				view.setPit7(model.getPit7());
+				view.setPit8(model.getPit8());
+				view.setPit9(model.getPit9());
+				view.setPit10(model.getPit10());
+				view.setPit11(model.getPit11());
+				view.setPit12(model.getPit12());
+				view.setPlayer1(model.getPlayer1());
+				view.setPlayer2(model.getPlayer2());
+				
+				view.player1Turn();
+				playerTurn = 1;
+			}
 
 			if(model.checkForWin()) {
 				Controller.this.gameOver();
@@ -328,6 +453,33 @@ public class Controller {
 			view.setPlayer1(model.getPlayer1());
 			view.setPlayer2(model.getPlayer2());
 
+			if(aiPlaying == 'y' && !playAgain) {
+				view.setPit7(false);
+				view.setPit8(false);
+				view.setPit9(false);
+				view.setPit10(false);
+				view.setPit11(false);
+				view.setPit12(false);
+				ai.AITurn(model);
+				
+				view.setPit1(model.getPit1());
+				view.setPit2(model.getPit2());
+				view.setPit3(model.getPit3());
+				view.setPit4(model.getPit4());
+				view.setPit5(model.getPit5());
+				view.setPit6(model.getPit6());
+				view.setPit7(model.getPit7());
+				view.setPit8(model.getPit8());
+				view.setPit9(model.getPit9());
+				view.setPit10(model.getPit10());
+				view.setPit11(model.getPit11());
+				view.setPit12(model.getPit12());
+				view.setPlayer1(model.getPlayer1());
+				view.setPlayer2(model.getPlayer2());
+				
+				view.player1Turn();
+				playerTurn = 1;
+			}
 
 			if(model.checkForWin()) {
 				Controller.this.gameOver();
@@ -363,6 +515,33 @@ public class Controller {
 			view.setPlayer1(model.getPlayer1());
 			view.setPlayer2(model.getPlayer2());
 
+			if(aiPlaying == 'y' && !playAgain) {
+				view.setPit7(false);
+				view.setPit8(false);
+				view.setPit9(false);
+				view.setPit10(false);
+				view.setPit11(false);
+				view.setPit12(false);
+				ai.AITurn(model);
+				
+				view.setPit1(model.getPit1());
+				view.setPit2(model.getPit2());
+				view.setPit3(model.getPit3());
+				view.setPit4(model.getPit4());
+				view.setPit5(model.getPit5());
+				view.setPit6(model.getPit6());
+				view.setPit7(model.getPit7());
+				view.setPit8(model.getPit8());
+				view.setPit9(model.getPit9());
+				view.setPit10(model.getPit10());
+				view.setPit11(model.getPit11());
+				view.setPit12(model.getPit12());
+				view.setPlayer1(model.getPlayer1());
+				view.setPlayer2(model.getPlayer2());
+				
+				view.player1Turn();
+				playerTurn = 1;
+			}
 
 			if(model.checkForWin()) {
 				Controller.this.gameOver();
@@ -399,6 +578,33 @@ public class Controller {
 			view.setPlayer1(model.getPlayer1());
 			view.setPlayer2(model.getPlayer2());
 
+			if(aiPlaying == 'y' && !playAgain) {
+				view.setPit7(false);
+				view.setPit8(false);
+				view.setPit9(false);
+				view.setPit10(false);
+				view.setPit11(false);
+				view.setPit12(false);
+				ai.AITurn(model);
+				
+				view.setPit1(model.getPit1());
+				view.setPit2(model.getPit2());
+				view.setPit3(model.getPit3());
+				view.setPit4(model.getPit4());
+				view.setPit5(model.getPit5());
+				view.setPit6(model.getPit6());
+				view.setPit7(model.getPit7());
+				view.setPit8(model.getPit8());
+				view.setPit9(model.getPit9());
+				view.setPit10(model.getPit10());
+				view.setPit11(model.getPit11());
+				view.setPit12(model.getPit12());
+				view.setPlayer1(model.getPlayer1());
+				view.setPlayer2(model.getPlayer2());
+				
+				view.player1Turn();
+				playerTurn = 1;
+			}
 
 			if(model.checkForWin()) {
 				Controller.this.gameOver();
@@ -434,6 +640,33 @@ public class Controller {
 			view.setPlayer1(model.getPlayer1());
 			view.setPlayer2(model.getPlayer2());
 
+			if(aiPlaying == 'y' && !playAgain) {
+				view.setPit7(false);
+				view.setPit8(false);
+				view.setPit9(false);
+				view.setPit10(false);
+				view.setPit11(false);
+				view.setPit12(false);
+				ai.AITurn(model);
+				
+				view.setPit1(model.getPit1());
+				view.setPit2(model.getPit2());
+				view.setPit3(model.getPit3());
+				view.setPit4(model.getPit4());
+				view.setPit5(model.getPit5());
+				view.setPit6(model.getPit6());
+				view.setPit7(model.getPit7());
+				view.setPit8(model.getPit8());
+				view.setPit9(model.getPit9());
+				view.setPit10(model.getPit10());
+				view.setPit11(model.getPit11());
+				view.setPit12(model.getPit12());
+				view.setPlayer1(model.getPlayer1());
+				view.setPlayer2(model.getPlayer2());
+				
+				view.player1Turn();
+				playerTurn = 1;
+			}
 
 			if(model.checkForWin()) {
 				Controller.this.gameOver();
@@ -694,11 +927,17 @@ public class Controller {
 				win.addQuitListener(new QuitListener());
 				win1 = win.createDialog(view.mainFrame, "You Won!");
 				win1.setVisible(true);
-			} else {
+			} else if(player2Score > player1Score) {
 				System.out.println("Player 2 Wins");
 				win = new WinDialog("Player 2");
 				win.addQuitListener(new QuitListener());
 				win1 = win.createDialog(view.mainFrame, "You Won!");
+				win1.setVisible(true);
+			} else {
+				System.out.println("Tie");
+				win = new WinDialog("Tie. Nobody");
+				win.addQuitListener(new QuitListener());
+				win1 = win.createDialog(view.mainFrame, "Tie game...");
 				win1.setVisible(true);
 			}
 			model.newGame();
