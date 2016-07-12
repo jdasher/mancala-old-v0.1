@@ -18,6 +18,9 @@ import javax.swing.JPanel;
  * @author Jonathan Dasher
  */
 public class BoardView {
+	// TODO Need to figure out a good way to set this up so that buttons are 
+	// more configurable
+	
 	// Main display frame and panel
 	public JFrame mainFrame = new JFrame();
 	private JPanel menuPanel = new JPanel();

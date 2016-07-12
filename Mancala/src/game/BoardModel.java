@@ -101,6 +101,80 @@ public class BoardModel {
 		return Integer.toString(player2);
 	}
 	
+	public boolean checkForWin() {
+		if ((pit1 + pit2 + pit3 + pit4 + pit5 + pit6 == 0) || 
+				(pit7 + pit8 + pit9 + pit10 + pit11 + pit12 == 0)) {
+			return true;
+		}
+		return false;
+	}
+
+	public void newGame() {
+		pit1 = 4;
+		pit2 = 4;
+		pit3 = 4;
+		pit4 = 4;
+		pit5 = 4;
+		pit6 = 4;
+		pit7 = 4;
+		pit8 = 4;
+		pit9 = 4;
+		pit10 = 4;
+		pit11 = 4;
+		pit12 = 4;
+
+		player1 = 0;
+		player2 = 0;
+	}
+	
+	public void resumeGame(int pit1, int pit2, int pit3,
+			int pit4, int pit5, int pit6, int pit7, int pit8,
+			int pit9, int pit10, int pit11, int pit12, 
+			int player1, int player2) {
+		this.pit1 = pit1;
+		this.pit2 = pit2;
+		this.pit3 = pit3;
+		this.pit4 = pit4;
+		this.pit5 = pit5;
+		this.pit6 = pit6;
+		this.pit7 = pit7;
+		this.pit8 = pit8;
+		this.pit9 = pit9;
+		this.pit10 = pit10;
+		this.pit11 = pit11;
+		this.pit12 = pit12;
+		this.player1 = player1;
+		this.player2 = player2;
+	}
+	
+	public int endGamePlayer1() {
+		int ret = pit1 + pit2 + pit3 + pit4 + pit5 + pit6;
+		
+		player1 += ret;
+		pit1 = 0;
+		pit2 = 0;
+		pit3 = 0;
+		pit4 = 0;
+		pit5 = 0;
+		pit6 = 0;
+		
+		return ret;
+	}
+	
+	public int endGamePlayer2() {
+		int ret = pit7 + pit8 + pit9 + pit10 + pit11 + pit12;
+
+		player2 += ret;
+		pit7 = 0;
+		pit8 = 0;
+		pit9 = 0;
+		pit10 = 0;
+		pit11 = 0;
+		pit12 = 0;
+		
+		return ret;
+	}
+	
 	/**
 	 * Method that is called for a turn from pit 1 to take place
 	 * @return boolean True if player gets to go again
@@ -1793,79 +1867,5 @@ public class BoardModel {
 		}
 		// Player picked an empty pit
 		return false;
-	}
-
-	public boolean checkForWin() {
-		if ((pit1 + pit2 + pit3 + pit4 + pit5 + pit6 == 0) || 
-				(pit7 + pit8 + pit9 + pit10 + pit11 + pit12 == 0)) {
-			return true;
-		}
-		return false;
-	}
-
-	public void newGame() {
-		pit1 = 4;
-		pit2 = 4;
-		pit3 = 4;
-		pit4 = 4;
-		pit5 = 4;
-		pit6 = 4;
-		pit7 = 4;
-		pit8 = 4;
-		pit9 = 4;
-		pit10 = 4;
-		pit11 = 4;
-		pit12 = 4;
-
-		player1 = 0;
-		player2 = 0;
-	}
-	
-	public void resumeGame(int pit1, int pit2, int pit3,
-			int pit4, int pit5, int pit6, int pit7, int pit8,
-			int pit9, int pit10, int pit11, int pit12, 
-			int player1, int player2) {
-		this.pit1 = pit1;
-		this.pit2 = pit2;
-		this.pit3 = pit3;
-		this.pit4 = pit4;
-		this.pit5 = pit5;
-		this.pit6 = pit6;
-		this.pit7 = pit7;
-		this.pit8 = pit8;
-		this.pit9 = pit9;
-		this.pit10 = pit10;
-		this.pit11 = pit11;
-		this.pit12 = pit12;
-		this.player1 = player1;
-		this.player2 = player2;
-	}
-	
-	public int endGamePlayer1() {
-		int ret = pit1 + pit2 + pit3 + pit4 + pit5 + pit6;
-		
-		player1 += ret;
-		pit1 = 0;
-		pit2 = 0;
-		pit3 = 0;
-		pit4 = 0;
-		pit5 = 0;
-		pit6 = 0;
-		
-		return ret;
-	}
-	
-	public int endGamePlayer2() {
-		int ret = pit7 + pit8 + pit9 + pit10 + pit11 + pit12;
-
-		player2 += ret;
-		pit7 = 0;
-		pit8 = 0;
-		pit9 = 0;
-		pit10 = 0;
-		pit11 = 0;
-		pit12 = 0;
-		
-		return ret;
 	}
 }
