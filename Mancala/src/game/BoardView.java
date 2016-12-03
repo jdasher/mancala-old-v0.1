@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.Rectangle;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -183,7 +184,7 @@ public class BoardView {
 		mainPanel.add(menuPanel,BorderLayout.WEST);
 		mainPanel.add(boardPanel,BorderLayout.SOUTH);
 		mainFrame.add(mainPanel);
-		mainFrame.setTitle("Mancala");
+		mainFrame.setTitle("Mancala");			
 		mainFrame.pack();
 		mainFrame.setVisible(true);
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
